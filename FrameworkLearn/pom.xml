@@ -27,6 +27,17 @@
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
+                    <configuration>
+                        <source>1.8</source> <!-- Adjust to your Java version -->
+                        <target>1.8</target> <!-- Adjust to your Java version -->
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

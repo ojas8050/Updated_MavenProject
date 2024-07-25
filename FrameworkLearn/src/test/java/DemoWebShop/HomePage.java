@@ -51,6 +51,12 @@ public HomePage(WebDriver driver){
         actions.click(LogoutBtn);
     }
 
+    @FindBy(partialLinkText = "Electronics")
+    private WebElement electroniclink;
+    public void ClickonElectronics(){
+        actions.click(electroniclink);
+    }
+
 
 
 }
