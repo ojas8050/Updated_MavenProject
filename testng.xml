@@ -6,6 +6,8 @@
             <class name="TestCases.LoginTestCase"/>
             <class name="TestCases.TakingScreenShotTestCase"/>
             <class name="TestCases.PlaceOrderTestCase"/>
+            <class name="TestCases.addMultipleProductsToCart"/>
+            <class name="TestCases.OrderOfEachCategoryTestCase"/>
         </classes>
     </test>
 </suite>
