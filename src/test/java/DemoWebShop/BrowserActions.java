@@ -42,4 +42,8 @@ public class BrowserActions {
         FileHandler.copy(temp, src);
     }
 
+    public void navigateBack(){
+        driver.navigate().back();
+    }
+
 }

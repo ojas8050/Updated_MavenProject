@@ -22,4 +22,10 @@ public class Electronics {
         action.click(CellPhonelink);
     }
 
+    @FindBy(partialLinkText = "Camera, photo")
+    private WebElement CameraNphoto;
+    public void ClickOnCameraNPhotos(){
+        action.click(CameraNphoto);
+    }
+
 }
