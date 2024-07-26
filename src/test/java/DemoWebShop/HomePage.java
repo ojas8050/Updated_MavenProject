@@ -20,6 +20,9 @@ public HomePage(WebDriver driver){
 
     @FindBy(xpath = "//span[normalize-space()='Shopping cart']")
     private WebElement ShoppingCartbtn;
+    public void ClickOnShoppingCartBtn(){
+        actions.click(ShoppingCartbtn);
+    }
 
     @FindBy(xpath = "//span[normalize-space()='Wishlist']`")
     private WebElement WhishListBtn;
@@ -56,6 +59,37 @@ public HomePage(WebDriver driver){
     public void ClickonElectronics(){
         actions.click(electroniclink);
     }
+
+    @FindBy(partialLinkText = "Digital downloads")
+    private WebElement DigitalDownloads;
+    public void ClickOnDigitalDowloads(){
+        actions.click(DigitalDownloads);
+    }
+
+    @FindBy(partialLinkText = "Books")
+    private WebElement Books;
+    public void ClickOnBooks(){
+        actions.click(Books);
+    }
+
+    @FindBy(partialLinkText = "Computers")
+    private WebElement Computers;
+    public void ClickOnComputers(){
+        actions.click(Computers);
+    }
+
+    @FindBy(partialLinkText = "Jewelry")
+    private WebElement Jewelry;
+    public void CLickonJewelry(){
+        actions.click(Jewelry);
+    }
+
+    @FindBy(partialLinkText = "Gift Cards")
+    private WebElement GiftCards;
+    public void ClickOnGiftCards(){
+        actions.click(GiftCards);
+    }
+
 
 
 
