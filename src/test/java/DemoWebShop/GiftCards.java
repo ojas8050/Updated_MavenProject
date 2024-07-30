@@ -27,4 +27,10 @@ public class GiftCards {
         action.click(AddtoCart);
     }
 
+    @FindBy(id = "giftcard_4_RecipientName")
+    private WebElement ReciptentName;
+    public void EnterReciptentName(String Name){
+        action.sendKeys(ReciptentName,Name);
+    }
+
 }

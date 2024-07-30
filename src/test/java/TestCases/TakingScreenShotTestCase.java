@@ -21,7 +21,7 @@ public class TakingScreenShotTestCase {
         ba.maximizeWindow();
         ba.implicitwait();
         ba.openUrl("https://demowebshop.tricentis.com/");
-        Reporter.log("DemoWebShop Site is Opened", true);
+        Reporter.log("Browser initialized and site opened", true);
 
         HomePage hp = new HomePage(driver);
         hp.ClickOnLoginButton();

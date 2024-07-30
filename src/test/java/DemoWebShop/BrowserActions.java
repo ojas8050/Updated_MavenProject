@@ -31,19 +31,25 @@ public class BrowserActions {
         driver.manage().window().maximize();
     }
 
-    public void implicitwait(){
+    public void implicitwait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
     public void ScreenShot() throws IOException {
-        TakesScreenshot takescreenShot=(TakesScreenshot) driver;
+        TakesScreenshot takescreenShot = (TakesScreenshot) driver;
         File temp = takescreenShot.getScreenshotAs(OutputType.FILE);//
-        File src=new File("./ErrorShot/image.png");
+        File src = new File("./ErrorShot/image.png");
         FileHandler.copy(temp, src);
     }
 
-    public void navigateBack(){
+    public void navigateBack() {
         driver.navigate().back();
     }
 
+    public String Title() {
+        return driver.getTitle();
+    }
 }
+
+
+

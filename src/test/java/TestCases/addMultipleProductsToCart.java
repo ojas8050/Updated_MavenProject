@@ -1,11 +1,9 @@
 package TestCases;
 
-import DemoWebShop.BrowserActions;
-import DemoWebShop.DigitalDownload;
-import DemoWebShop.HomePage;
-import DemoWebShop.LoginPage;
+import DemoWebShop.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -18,6 +16,8 @@ public class addMultipleProductsToCart {
         ba.implicitwait();
         ba.maximizeWindow();
         ba.openUrl("https://demowebshop.tricentis.com/");
+        String ActualTitle = ba.Title();
+        Assert.assertEquals(ActualTitle,"Demo Web Shop");
 
         HomePage hp=new HomePage(driver);
         hp.ClickOnLoginButton();
@@ -39,6 +39,9 @@ public class addMultipleProductsToCart {
         Reporter.log("3 Items are added to cart",true);
         dd.ClickOnShoppingCart();
         Reporter.log("Navigated To Shopping Cart With 3 items",true);
+        Cart cart=new Cart(driver);
+        Assert.assertNotNull(cart.getCartItems(),"Shopping cart Shouldn't be Empty");
         ba.closeBrowser();
+        Reporter.log("Browser Closed Successfully",true);
     }
 }

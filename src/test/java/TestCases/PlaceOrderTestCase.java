@@ -3,6 +3,7 @@ package TestCases;
 import DemoWebShop.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
@@ -34,10 +35,12 @@ public class PlaceOrderTestCase {
         SmartPhone sp=new SmartPhone(driver);
         sp.ClickonAddToCartButton();
         sp.ClickOnShoppingCart();
+        Reporter.log("Smartphone added to cart", true);
 
         Cart cart=new Cart(driver);
         cart.ClickOnTNCCheckBox();
         cart.ClickOnCheckOutButton();
+        Reporter.log("Proceeded to checkout", true);
 
         Checkout co=new Checkout(driver);
         co.ClickOnBillingAddressContinue();
@@ -47,6 +50,9 @@ public class PlaceOrderTestCase {
         co.ClickOnPaymentMethod();
         co.ClickOnPaymentInfo();
         co.ClickOnConfirmOrder();
+        String OrderConfirmationMessage=co.getThankyouMessage().getText();
+        Assert.assertTrue(OrderConfirmationMessage.contains("Thank you"),"Order confirmation failed");
+        Reporter.log("Order confirmed", true);
 
         hp.getLogoutBtn();
         ba.closeBrowser();

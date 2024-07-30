@@ -90,7 +90,12 @@ public HomePage(WebDriver driver){
         actions.click(GiftCards);
     }
 
+    @FindBy(linkText = "ojas1@gmail.com")
+    private WebElement OjasUser;
 
+    public WebElement getOjasUser() {
+        return OjasUser;
+    }
 
 
 }
