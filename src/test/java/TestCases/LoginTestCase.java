@@ -18,6 +18,8 @@ public class LoginTestCase {
         ba.maximizeWindow();
         ba.implicitwait();
         ba.openUrl("https://demowebshop.tricentis.com/");
+        String ActualTitle = ba.Title();
+        Assert.assertEquals(ActualTitle,"Demo Web Shop");
         Reporter.log("DemoWebShop Site is Opened",true);
 
         HomePage hp=new HomePage(driver);

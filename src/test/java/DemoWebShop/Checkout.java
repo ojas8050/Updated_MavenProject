@@ -57,6 +57,16 @@ public class Checkout {
         action.click(ConfirmOrder);
     }
 
+    @FindBy(xpath = "//h1[text()='Thank you']")
+    private WebElement ThankyouMessage;
+
+    public WebElement getThankyouMessage() {
+        return ThankyouMessage;
+    }
+
+    public void ConfirmationMessage(){
+        String OrderConfirmationMessage = getThankyouMessage().getText();
+    }
 
 
 }
