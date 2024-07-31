@@ -8,8 +8,8 @@
             <class name="TestCases.LoginTestCase"/>
             <class name="TestCases.TakingScreenShotTestCase"/>
             <class name="TestCases.addMultipleProductsToCart"/>
-            <class name="TestCases.ValidateCompareProducts"/>
             <class name="TestCases.OrderOfEachCategoryTestCase"/>
+            <class name="TestCases.ValidateCompareProducts"/>
         </classes>
     </test>
 </suite>
