@@ -21,4 +21,20 @@ public class Jwelry {
         action.click(AddtocartButton);
     }
 
+    @FindBy(linkText = "Vintage Style Three Stone Diamond Engagement Ring")
+    private WebElement DaimondEngRing;
+    public void ClickOnEngagementRing(){
+        action.click(DaimondEngRing);
+    }
+
+    @FindBy(linkText = "Diamond Pave Earrings")
+    private WebElement EarRings;
+    public void ClickOnEarRings(){
+        action.click(EarRings);
+    }
+
+
+
+
+
 }

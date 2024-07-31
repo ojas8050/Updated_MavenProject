@@ -38,6 +38,7 @@ public class PlaceOrderTestCase {
         Reporter.log("Smartphone added to cart", true);
 
         Cart cart=new Cart(driver);
+
         cart.ClickOnTNCCheckBox();
         cart.ClickOnCheckOutButton();
         Reporter.log("Proceeded to checkout", true);

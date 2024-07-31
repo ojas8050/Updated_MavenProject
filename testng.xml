@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="1" preserve-order="true" name="C:/Users/OjasChopade/IdeaProjects/FrameworkLearn"
-    parallel="classes">
+    parallel="classes" thread-count="3">
         <classes>
+            <class name="TestCases.PlaceOrderTestCase"/>
             <class name="TestCases.LoginTestCase"/>
             <class name="TestCases.TakingScreenShotTestCase"/>
-            <class name="TestCases.PlaceOrderTestCase"/>
             <class name="TestCases.addMultipleProductsToCart"/>
+            <class name="TestCases.ValidateCompareProducts"/>
             <class name="TestCases.OrderOfEachCategoryTestCase"/>
         </classes>
     </test>

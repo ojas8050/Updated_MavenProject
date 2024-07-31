@@ -1,5 +1,6 @@
 package DemoWebShop;
 
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -97,5 +98,10 @@ public HomePage(WebDriver driver){
         return OjasUser;
     }
 
+    @FindBy(linkText = "Compare products list")
+    private WebElement CompareList;
+    public void ClickOnCompareList(){
+        actions.click(CompareList);
+    }
 
 }
