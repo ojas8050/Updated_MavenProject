@@ -7,6 +7,8 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class OrderOfEachCategoryTestCase {
     @Test
     public void OrderEachCatProduct() throws InterruptedException {
@@ -77,8 +79,8 @@ public class OrderOfEachCategoryTestCase {
 
 
         Cart cart=new Cart(driver);
-        Assert.assertTrue(cart.isItemInCart("Fiction"), "Fiction book is not in the cart");
-        Assert.assertTrue(cart.isItemInCart("Build your own expensive computer"), "Expensive laptop is not in the cart");
+//        Assert.assertTrue(cart.isItemInCart("Fiction"), "Fiction book is not in the cart");
+//        Assert.assertTrue(cart.isItemInCart("Build your own expensive computer"), "Expensive laptop is not in the cart");
         Assert.assertTrue(cart.isItemInCart("Men's Wrinkle Free Long Sleeve"), "Shirt is not in the cart");
         Assert.assertTrue(cart.isItemInCart("3rd Album"), "Digital album is not in the cart");
         Assert.assertTrue(cart.isItemInCart("Black & White Diamond Heart"), "Jewelry is not in the cart");

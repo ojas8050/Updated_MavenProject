@@ -20,7 +20,7 @@ public class Books {
     public void FictionBookAddToCart(){
         action.click(Fiction);
     }
-
-
-
+    public WebElement getFiction() {
+        return Fiction;
+    }
 }
