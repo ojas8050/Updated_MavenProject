@@ -7,25 +7,25 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Electronics {
     private WebDriver driver;
-    private ActionClass action;
 
     public Electronics(WebDriver driver){
             this.driver=driver;
-            this.action=new ActionClass(driver);
         PageFactory.initElements(driver,this);
     }
 
     @FindBy(partialLinkText = "Cell phones")
     private WebElement CellPhonelink;
 
-    public void ClickOnCellPhoneLink(){
-        action.click(CellPhonelink);
+    public Electronics ClickOnCellPhoneLink(){
+        CellPhonelink.click();
+        return this;
     }
 
     @FindBy(partialLinkText = "Camera, photo")
     private WebElement CameraNphoto;
-    public void ClickOnCameraNPhotos(){
-        action.click(CameraNphoto);
+    public Electronics ClickOnCameraNPhotos(){
+        CameraNphoto.click();
+        return this;
     }
 
 }

@@ -7,11 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CompareProducts {
     private WebDriver driver;
-    private ActionClass action;
 
     public CompareProducts(WebDriver driver){
         this.driver=driver;
-        this.action=new ActionClass(driver);
         PageFactory.initElements(driver,this);
     }
 

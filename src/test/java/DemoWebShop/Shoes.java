@@ -7,11 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Shoes {
     private WebDriver driver;
-    private ActionClass actions;
 
     public Shoes(WebDriver driver) {
         this.driver = driver;
-        this.actions = new ActionClass(driver);
         PageFactory.initElements(driver,this);
     }
 
@@ -21,12 +19,14 @@ public class Shoes {
     @FindBy(linkText = "Women's Running Shoe")
     private WebElement WomensRunningShoes;
 
-    public void ClickOnNext(){
-        actions.click(Secondpage);
+    public Shoes ClickOnNext(){
+        Secondpage.click();
+        return this;
     }
 
-    public void ClickOnShoes(){
-        actions.click(WomensRunningShoes);
+    public Shoes ClickOnShoes(){
+        WomensRunningShoes.click();
+        return this;
     }
 
 

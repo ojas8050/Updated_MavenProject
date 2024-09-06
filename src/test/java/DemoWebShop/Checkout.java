@@ -4,57 +4,64 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 public class Checkout {
     private WebDriver driver;
-    private ActionClass action;
 
     public Checkout(WebDriver driver){
         this.driver=driver;
-        this.action=new ActionClass(driver);
         PageFactory.initElements(driver,this);
     }
 
     @FindBy(css = "[onclick='Billing.save()']")
     private WebElement BillingAddressContinue;
-    public void ClickOnBillingAddressContinue(){
-        action.click(BillingAddressContinue);
+    public Checkout ClickOnBillingAddressContinue(){
+        BillingAddressContinue.click();
+        return this;
     }
 
     @FindBy(css = "[onclick='Shipping.save()']")
     private WebElement ShippingContinue;
-    public void ClickOnShippingContinue(){
-        action.click(ShippingContinue);
+    public Checkout ClickOnShippingContinue(){
+        ShippingContinue.click();
+        return this;
     }
 
     @FindBy(css = "[onclick='ShippingMethod.save()']")
     private WebElement ShippingMethodContinue;
-    public void ClickOnShippingMethod(){
-        action.click(ShippingMethodContinue);
+    public Checkout ClickOnShippingMethod(){
+        ShippingMethodContinue.click();
+        return this;
     }
 
     @FindBy(id = "shippingoption_1")
     private WebElement NextDayAir;
-    public void ClickOnNextDayAir(){
-        action.click(NextDayAir);
+    public Checkout ClickOnNextDayAir(){
+        NextDayAir.click();
+        return this;
     }
 
     @FindBy(css = "[onclick='PaymentMethod.save()']")
     private WebElement PaymentMethod;
-    public void ClickOnPaymentMethod(){
-        action.click(PaymentMethod);
+    public Checkout ClickOnPaymentMethod(){
+        PaymentMethod.click();
+        return this;
     }
 
     @FindBy(css = "[onclick='PaymentInfo.save()']")
     private WebElement PaymentInfo;
-    public void ClickOnPaymentInfo(){
-        action.click(PaymentInfo);
+    public Checkout ClickOnPaymentInfo(){
+        PaymentInfo.click();
+        return this;
     }
 
     @FindBy(css = "[onclick='ConfirmOrder.save()']")
     private WebElement ConfirmOrder;
-    public void ClickOnConfirmOrder(){
-        action.click(ConfirmOrder);
+    public Checkout ClickOnConfirmOrder(){
+        ConfirmOrder.click();
+        Reporter.log("Order confirmed", true);
+        return this;
     }
 
     @FindBy(xpath = "//h1[text()='Thank you']")
@@ -64,8 +71,9 @@ public class Checkout {
         return ThankyouMessage;
     }
 
-    public void ConfirmationMessage(){
+    public Checkout ConfirmationMessage(){
         String OrderConfirmationMessage = getThankyouMessage().getText();
+        return this;
     }
 
 

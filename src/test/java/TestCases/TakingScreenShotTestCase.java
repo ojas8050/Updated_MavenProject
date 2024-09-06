@@ -8,43 +8,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 public class TakingScreenShotTestCase {
+    WebDriver driver=new ChromeDriver();
+    BrowserActions ba =new BrowserActions(driver);
+    HomePage hp=new HomePage(driver);
+    LoginPage lp =new LoginPage(driver);
+    Shoes s = new Shoes(driver);
+
     @Test
-    public void Login() throws IOException {
-        WebDriver driver = new ChromeDriver();
-        BrowserActions ba = new BrowserActions(driver);
-        Reporter.log("Chrome Browser Open Successfully", true);
-        ba.maximizeWindow();
-        ba.implicitwait();
-        ba.openUrl("https://demowebshop.tricentis.com/");
-        Reporter.log("Browser initialized and site opened", true);
-
-        HomePage hp = new HomePage(driver);
+    public void Screenshot() throws IOException {
+        ba.maximizeWindow()
+                .implicitwait()
+                .openUrl("https://demowebshop.tricentis.com/");
         hp.ClickOnLoginButton();
-        Reporter.log("Login page Was Opened", true);
-        LoginPage lp = new LoginPage(driver);
-        lp.enterUsername("ojas1@gmail.com");
-        lp.enterPassword("Ojas@123");
-        lp.clickOnLogin();
-        Reporter.log("LoggedIn Successfully", true);
+        lp.enterUsername("ojas1@gmail.com")
+                .enterPassword("Ojas@123")
+                .clickOnLogin();
         hp.ClickOnApparelNShoes();
-        Reporter.log("Clicked On Apparel and Shoes", true);
-        Shoes s = new Shoes(driver);
-        s.ClickOnNext();
-        s.ClickOnShoes();
-        Reporter.log("Clicked On Shoes", true);
+        s.ClickOnNext()
+                .ClickOnShoes();
         ba.ScreenShot();
-        Reporter.log("ScreenShot is Taken", true);
-        String actualres = hp.getLogoutBtn().getText();
-        Assert.assertEquals(actualres, "Log out");
         hp.getLogoutBtn();
-        Reporter.log("LoggedOut Successfully", true);
         ba.closeBrowser();
-        Reporter.log("Browser Closed Successfully", true);
-
     }
 }

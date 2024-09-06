@@ -5,24 +5,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 public class HomePage {
     private WebDriver driver;
-    private ActionClass actions;
 
 public HomePage(WebDriver driver){
     this.driver = driver;
-    this.actions = new ActionClass(driver);
     PageFactory.initElements(driver,this);
 }
 
     @FindBy(css = ".ico-login")
     private WebElement LoginButton;
+    public HomePage ClickOnLoginButton(){
+        LoginButton.click();
+        Reporter.log("Login page Was Opened", true);
+        return this;
+    }
 
-    @FindBy(xpath = "//span[normalize-space()='Shopping cart']")
+    @FindBy(xpath = "//span[text()='Shopping cart']")
     private WebElement ShoppingCartbtn;
-    public void ClickOnShoppingCartBtn(){
-        actions.click(ShoppingCartbtn);
+    public HomePage ClickOnShoppingCartBtn(){
+        ShoppingCartbtn.click();
+        return this;
     }
 
     @FindBy(xpath = "//span[normalize-space()='Wishlist']`")
@@ -36,72 +41,83 @@ public HomePage(WebDriver driver){
 
     @FindBy(partialLinkText = "Apparel & Shoes")
     private WebElement apparelNshoes;
-
-    public WebElement getLogoutBtn() {
-        return LogoutBtn;
+    public HomePage ClickOnApparelNShoes(){
+        apparelNshoes.click();
+        Reporter.log("apparelNShoes page Was Opened", true);
+        return this;
     }
 
     @FindBy(linkText = "Log out")
     private WebElement LogoutBtn;
-
-    public void ClickOnLoginButton(){
-        actions.click(LoginButton);
+    public HomePage ClickOnLogoutBtn(){
+        LogoutBtn.click();
+        Reporter.log("LoggedOut Successfully", true);
+        return this;
     }
-    public void ClickOnApparelNShoes(){
-        actions.click(apparelNshoes);
-    }
-
-    public void ClickOnLogoutBtn(){
-        actions.click(LogoutBtn);
+    public WebElement getLogoutBtn() {
+        return LogoutBtn;
     }
 
     @FindBy(partialLinkText = "Electronics")
     private WebElement electroniclink;
-    public void ClickonElectronics(){
-        actions.click(electroniclink);
+    public HomePage ClickonElectronics(){
+        electroniclink.click();
+        Reporter.log("Electronic page Was Opened", true);
+        return this;
     }
 
     @FindBy(partialLinkText = "Digital downloads")
     private WebElement DigitalDownloads;
-    public void ClickOnDigitalDowloads(){
-        actions.click(DigitalDownloads);
+    public HomePage ClickOnDigitalDowloads(){
+        DigitalDownloads.click();
+        Reporter.log("Digital Downloads page Was Opened", true);
+        return this;
     }
 
     @FindBy(partialLinkText = "Books")
     private WebElement Books;
-    public void ClickOnBooks(){
-        actions.click(Books);
+    public HomePage ClickOnBooks(){
+        Books.click();
+        Reporter.log("Books page Was Opened", true);
+        return this;
     }
 
     @FindBy(partialLinkText = "Computers")
     private WebElement Computers;
-    public void ClickOnComputers(){
-        actions.click(Computers);
+    public HomePage ClickOnComputers(){
+        Computers.click();
+        Reporter.log("Computers page Was Opened", true);
+        return this;
     }
 
     @FindBy(partialLinkText = "Jewelry")
     private WebElement Jewelry;
-    public void CLickonJewelry(){
-        actions.click(Jewelry);
+    public HomePage CLickonJewelry(){
+        Jewelry.click();
+        Reporter.log("Jewellery page Was Opened", true);
+        return this;
     }
 
     @FindBy(partialLinkText = "Gift Cards")
     private WebElement GiftCards;
-    public void ClickOnGiftCards(){
-        actions.click(GiftCards);
+    public HomePage ClickOnGiftCards(){
+        GiftCards.click();
+        Reporter.log("GiftCards page Was Opened", true);
+        return this;
     }
 
     @FindBy(linkText = "ojas1@gmail.com")
     private WebElement OjasUser;
-
     public WebElement getOjasUser() {
         return OjasUser;
     }
 
     @FindBy(linkText = "Compare products list")
     private WebElement CompareList;
-    public void ClickOnCompareList(){
-        actions.click(CompareList);
+    public HomePage ClickOnCompareList(){
+        CompareList.click();
+        Reporter.log("Navigated to compare list", true);
+        return this;
     }
 
 }

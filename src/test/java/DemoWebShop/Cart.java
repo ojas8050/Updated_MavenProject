@@ -13,25 +13,26 @@ import java.util.List;
 public class Cart{
 
     private WebDriver driver;
-    private ActionClass action;
     BrowserActions ba= new BrowserActions(driver);
 
     public Cart(WebDriver driver){
         this.driver=driver;
-        this.action=new ActionClass(driver);
         PageFactory.initElements(driver,this);
     }
 
     @FindBy(id = "termsofservice")
     private WebElement TNCCheckBox;
-    public void ClickOnTNCCheckBox(){
-        action.click(TNCCheckBox);
+    public Cart ClickOnTNCCheckBox(){
+        TNCCheckBox.click();
+        return this;
     }
 
     @FindBy(id = "checkout")
     private WebElement CheackOutButton;
-    public void ClickOnCheckOutButton(){
-        action.click(CheackOutButton);
+    public Cart ClickOnCheckOutButton(){
+        CheackOutButton.click();
+        Reporter.log("Proceeded to checkout", true);
+        return this;
     }
 
    @FindBy(className = "cart-item-row")

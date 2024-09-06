@@ -4,6 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.Reporter;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,42 +19,54 @@ public class BrowserActions {
     }
 
     // Open a URL
-    public void openUrl(String url) {
+    public BrowserActions openUrl(String url) {
         driver.get(url);
+        Reporter.log("Browser initialized and site opened", true);
+        String ActualTitle = driver.getTitle();
+        Assert.assertEquals(ActualTitle,"Demo Web Shop");
+        return this;
     }
 
     // Close the browser
-    public void closeBrowser() {
+    public BrowserActions closeBrowser() {
         driver.quit();
+        Reporter.log("Browser Closed Successfully", true);
+        return this;
     }
 
     // Maximize the browser window
-    public void maximizeWindow() {
+    public BrowserActions maximizeWindow() {
         driver.manage().window().maximize();
+        return this;
     }
 
-    public void implicitwait() {
+    public BrowserActions implicitwait() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        return this;
     }
 
-    public void ScreenShot() throws IOException {
+    public BrowserActions ScreenShot() throws IOException {
         TakesScreenshot takescreenShot = (TakesScreenshot) driver;
         File temp = takescreenShot.getScreenshotAs(OutputType.FILE);//
         File src = new File("./ErrorShot/image.png");
         FileHandler.copy(temp, src);
+        Reporter.log("Screenshot Captured", true);
+        return this;
     }
 
-    public void navigateBack() {
+    public BrowserActions navigateBack() {
         driver.navigate().back();
+        return this;
     }
 
     public String Title() {
         return driver.getTitle();
     }
 
-    public void ExplicitWait(WebElement Element,Duration Timeout){
+    public BrowserActions ExplicitWait(WebElement Element,Duration Timeout){
         WebDriverWait wait=new WebDriverWait(driver,Timeout);
         wait.until(ExpectedConditions.elementToBeClickable(Element));
+        return this;
     }
 }
 

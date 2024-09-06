@@ -4,14 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Reporter;
 
 public class LoginPage {
     private WebDriver driver;
-    private ActionClass actions;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.actions = new ActionClass(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -30,16 +29,20 @@ public class LoginPage {
     @FindBy(css = "input[value='Register']")
     private WebElement registerBtn;
 
-    public void enterUsername(String username) {
-        actions.sendKeys(unTextField, username);
+    public LoginPage enterUsername(String username) {
+        unTextField.sendKeys(username);
+        return this;
     }
 
-    public void enterPassword(String password) {
-        actions.sendKeys(pwdTextField, password);
+    public LoginPage enterPassword(String password) {
+        pwdTextField.sendKeys(password);
+        return this;
     }
 
-    public void clickOnLogin() {
-        actions.click(loginBtn);
+    public LoginPage clickOnLogin() {
+        loginBtn.click();
+        Reporter.log("LoggedIn Successfully", true);
+        return this;
     }
 
 }
